@@ -1,6 +1,6 @@
 {
   "name": "gql-importer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "GraphQL types to typescript interface importer",
   "main": "index.js",
   "scripts": {
