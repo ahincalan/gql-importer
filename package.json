@@ -1,0 +1,46 @@
+{
+  "name": "gql-importer",
+  "version": "1.0.3",
+  "description": "GraphQL types to typescript interface importer",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec --bail --check-leaks test/",
+    "cover": "nyc --reporter=cobertura --reporter html --reporter text npm run test"
+  },
+  "bin": {
+    "gqlImporter": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahincalan/gql-importer.git"
+  },
+  "keywords": [
+    "qraphql",
+    "types",
+    "auto",
+    "generate",
+    "javascript",
+    "typescript",
+    "interface",
+    "importer"
+  ],
+  "author": "ahincalan",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "command-line-args": "^5.0.2",
+    "command-line-usage": "^5.0.5",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "app-root-path": "^2.1.0",
+    "babel-eslint": "^10.0.1",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.12.0",
+    "eslint-config-google": "^0.11.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "rimraf": "^2.6.3"
+  }
+}

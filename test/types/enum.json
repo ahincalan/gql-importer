@@ -1,0 +1,27 @@
+{
+  "data": {
+    "__type": {
+      "kind": "ENUM",
+      "enumValues": [
+        {
+          "name": "M",
+          "description": "Male"
+        },
+        {
+          "name": "F",
+          "description": "Female"
+        },
+        {
+          "name": "O",
+          "description": "Other"
+        },
+        {
+          "name": "U",
+          "description": "Unknown"
+        }
+      ],
+      "fields": null,
+      "inputFields": null
+    }
+  }
+}

@@ -1,0 +1,1036 @@
+{
+  "data": {
+    "__schema": {
+      "types": [
+        {
+          "name": "Query",
+          "kind": "OBJECT",
+          "enumValues": null,
+          "fields": [
+            {
+              "name": "server",
+              "type": {
+                "kind": "OBJECT",
+                "name": "SRV_Query",
+                "ofType": null
+              }
+            },
+            {
+              "name": "global",
+              "type": {
+                "kind": "OBJECT",
+                "name": "GLB_Query",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "SRV_Query",
+          "kind": "OBJECT",
+          "enumValues": null,
+          "fields": [
+            {
+              "name": "info",
+              "type": {
+                "kind": "OBJECT",
+                "name": "ServerInfo",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "ServerInfo",
+          "kind": "OBJECT",
+          "enumValues": null,
+          "fields": [
+            {
+              "name": "appName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "appVersion",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "localTime",
+              "type": {
+                "kind": "SCALAR",
+                "name": "DateTimeTz",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "String",
+          "kind": "SCALAR",
+          "enumValues": null,
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "DateTimeTz",
+          "kind": "SCALAR",
+          "enumValues": null,
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "HashID",
+          "kind": "SCALAR",
+          "enumValues": null,
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "Gender",
+          "kind": "ENUM",
+          "enumValues": [
+            {
+              "name": "M",
+              "description": "Male"
+            },
+            {
+              "name": "F",
+              "description": "Female"
+            },
+            {
+              "name": "O",
+              "description": "Other"
+            },
+            {
+              "name": "U",
+              "description": "Unknown"
+            }
+          ],
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "Date",
+          "kind": "SCALAR",
+          "enumValues": null,
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "GLB_Query",
+          "kind": "OBJECT",
+          "enumValues": null,
+          "fields": [
+            {
+              "name": "country",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Country",
+                "ofType": null
+              }
+            },
+            {
+              "name": "countries",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "name": "Country",
+                  "kind": "OBJECT",
+                  "ofType": null
+                }
+              }
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "Country",
+          "kind": "OBJECT",
+          "enumValues": null,
+          "fields": [
+            {
+              "name": "code",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "code3",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "coden",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "phoneCode",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "_GLB_Query_countries_Filter",
+          "kind": "INPUT_OBJECT",
+          "enumValues": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "AND",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "_GLB_Query_countries_Filter",
+                  "kind": "INPUT_OBJECT",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "OR",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "_GLB_Query_countries_Filter",
+                  "kind": "INPUT_OBJECT",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "code",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "code_in",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "name_like",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "_GLB_Query_countries_sort",
+          "kind": "ENUM",
+          "enumValues": [
+            {
+              "name": "code",
+              "description": null
+            },
+            {
+              "name": "code_dsc",
+              "description": null
+            },
+            {
+              "name": "name",
+              "description": null
+            },
+            {
+              "name": "name_dsc",
+              "description": null
+            }
+          ],
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "Int",
+          "kind": "SCALAR",
+          "enumValues": null,
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "AddressType",
+          "kind": "ENUM",
+          "enumValues": [
+            {
+              "name": "H",
+              "description": "Home"
+            },
+            {
+              "name": "W",
+              "description": "Work"
+            }
+          ],
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "Address",
+          "kind": "OBJECT",
+          "enumValues": null,
+          "fields": [
+            {
+              "name": "pk",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": "HashID",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "addressType",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": "AddressType",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "street",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "city",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "state",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "zipCode",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "country",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Country",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "Mutation",
+          "kind": "OBJECT",
+          "enumValues": null,
+          "fields": [
+            {
+              "name": "global",
+              "type": {
+                "kind": "OBJECT",
+                "name": "GLB_Mutation",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "Boolean",
+          "kind": "SCALAR",
+          "enumValues": null,
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "GLB_Mutation",
+          "kind": "OBJECT",
+          "enumValues": null,
+          "fields": [
+            {
+              "name": "patient",
+              "type": {
+                "kind": "OBJECT",
+                "name": "HLT_MutationPatient",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "Address_Input",
+          "kind": "INPUT_OBJECT",
+          "enumValues": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "addressType",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "AddressType",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "street",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "city",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "state",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "countryCode",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "zipCode",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "__Schema",
+          "kind": "OBJECT",
+          "enumValues": null,
+          "fields": [
+            {
+              "name": "types",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": null,
+                  "kind": "LIST",
+                  "ofType": {
+                    "name": null,
+                    "kind": "NON_NULL"
+                  }
+                }
+              }
+            },
+            {
+              "name": "queryType",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": "__Type",
+                  "kind": "OBJECT",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "mutationType",
+              "type": {
+                "kind": "OBJECT",
+                "name": "__Type",
+                "ofType": null
+              }
+            },
+            {
+              "name": "subscriptionType",
+              "type": {
+                "kind": "OBJECT",
+                "name": "__Type",
+                "ofType": null
+              }
+            },
+            {
+              "name": "directives",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": null,
+                  "kind": "LIST",
+                  "ofType": {
+                    "name": null,
+                    "kind": "NON_NULL"
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "__Type",
+          "kind": "OBJECT",
+          "enumValues": null,
+          "fields": [
+            {
+              "name": "kind",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": "__TypeKind",
+                  "kind": "ENUM",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "description",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "fields",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "name": null,
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "name": "__Field",
+                    "kind": "OBJECT"
+                  }
+                }
+              }
+            },
+            {
+              "name": "interfaces",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "name": null,
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "name": "__Type",
+                    "kind": "OBJECT"
+                  }
+                }
+              }
+            },
+            {
+              "name": "possibleTypes",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "name": null,
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "name": "__Type",
+                    "kind": "OBJECT"
+                  }
+                }
+              }
+            },
+            {
+              "name": "enumValues",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "name": null,
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "name": "__EnumValue",
+                    "kind": "OBJECT"
+                  }
+                }
+              }
+            },
+            {
+              "name": "inputFields",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "name": null,
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "name": "__InputValue",
+                    "kind": "OBJECT"
+                  }
+                }
+              }
+            },
+            {
+              "name": "ofType",
+              "type": {
+                "kind": "OBJECT",
+                "name": "__Type",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "__TypeKind",
+          "kind": "ENUM",
+          "enumValues": [
+            {
+              "name": "SCALAR",
+              "description": "Indicates this type is a scalar."
+            },
+            {
+              "name": "OBJECT",
+              "description": "Indicates this type is an object. `fields` and `interfaces` are valid fields."
+            },
+            {
+              "name": "INTERFACE",
+              "description": "Indicates this type is an interface. `fields` and `possibleTypes` are valid fields."
+            },
+            {
+              "name": "UNION",
+              "description": "Indicates this type is a union. `possibleTypes` is a valid field."
+            },
+            {
+              "name": "ENUM",
+              "description": "Indicates this type is an enum. `enumValues` is a valid field."
+            },
+            {
+              "name": "INPUT_OBJECT",
+              "description": "Indicates this type is an input object. `inputFields` is a valid field."
+            },
+            {
+              "name": "LIST",
+              "description": "Indicates this type is a list. `ofType` is a valid field."
+            },
+            {
+              "name": "NON_NULL",
+              "description": "Indicates this type is a non-null. `ofType` is a valid field."
+            }
+          ],
+          "fields": null,
+          "inputFields": null
+        },
+        {
+          "name": "__Field",
+          "kind": "OBJECT",
+          "enumValues": null,
+          "fields": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "description",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "args",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": null,
+                  "kind": "LIST",
+                  "ofType": {
+                    "name": null,
+                    "kind": "NON_NULL"
+                  }
+                }
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": "__Type",
+                  "kind": "OBJECT",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "isDeprecated",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": "Boolean",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "deprecationReason",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "__InputValue",
+          "kind": "OBJECT",
+          "enumValues": null,
+          "fields": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "description",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": "__Type",
+                  "kind": "OBJECT",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "defaultValue",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "__EnumValue",
+          "kind": "OBJECT",
+          "enumValues": null,
+          "fields": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "description",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "isDeprecated",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": "Boolean",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "deprecationReason",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "__Directive",
+          "kind": "OBJECT",
+          "enumValues": null,
+          "fields": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "description",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "locations",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": null,
+                  "kind": "LIST",
+                  "ofType": {
+                    "name": null,
+                    "kind": "NON_NULL"
+                  }
+                }
+              }
+            },
+            {
+              "name": "args",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "name": null,
+                  "kind": "LIST",
+                  "ofType": {
+                    "name": null,
+                    "kind": "NON_NULL"
+                  }
+                }
+              }
+            }
+          ],
+          "inputFields": null
+        },
+        {
+          "name": "__DirectiveLocation",
+          "kind": "ENUM",
+          "enumValues": [
+            {
+              "name": "QUERY",
+              "description": "Location adjacent to a query operation."
+            },
+            {
+              "name": "MUTATION",
+              "description": "Location adjacent to a mutation operation."
+            },
+            {
+              "name": "SUBSCRIPTION",
+              "description": "Location adjacent to a subscription operation."
+            },
+            {
+              "name": "FIELD",
+              "description": "Location adjacent to a field."
+            },
+            {
+              "name": "FRAGMENT_DEFINITION",
+              "description": "Location adjacent to a fragment definition."
+            },
+            {
+              "name": "FRAGMENT_SPREAD",
+              "description": "Location adjacent to a fragment spread."
+            },
+            {
+              "name": "INLINE_FRAGMENT",
+              "description": "Location adjacent to an inline fragment."
+            },
+            {
+              "name": "VARIABLE_DEFINITION",
+              "description": "Location adjacent to a variable definition."
+            },
+            {
+              "name": "SCHEMA",
+              "description": "Location adjacent to a schema definition."
+            },
+            {
+              "name": "SCALAR",
+              "description": "Location adjacent to a scalar definition."
+            },
+            {
+              "name": "OBJECT",
+              "description": "Location adjacent to an object type definition."
+            },
+            {
+              "name": "FIELD_DEFINITION",
+              "description": "Location adjacent to a field definition."
+            },
+            {
+              "name": "ARGUMENT_DEFINITION",
+              "description": "Location adjacent to an argument definition."
+            },
+            {
+              "name": "INTERFACE",
+              "description": "Location adjacent to an interface definition."
+            },
+            {
+              "name": "UNION",
+              "description": "Location adjacent to a union definition."
+            },
+            {
+              "name": "ENUM",
+              "description": "Location adjacent to an enum definition."
+            },
+            {
+              "name": "ENUM_VALUE",
+              "description": "Location adjacent to an enum value definition."
+            },
+            {
+              "name": "INPUT_OBJECT",
+              "description": "Location adjacent to an input object type definition."
+            },
+            {
+              "name": "INPUT_FIELD_DEFINITION",
+              "description": "Location adjacent to an input object field definition."
+            }
+          ],
+          "fields": null,
+          "inputFields": null
+        }
+      ]
+    }
+  }
+}

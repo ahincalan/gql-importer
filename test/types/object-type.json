@@ -1,0 +1,79 @@
+{
+  "data": {
+    "__type": {
+      "kind": "OBJECT",
+      "enumValues": null,
+      "fields": [
+        {
+          "name": "pk",
+          "type": {
+            "name": null,
+            "kind": "NON_NULL",
+            "ofType": {
+              "name": "HashID",
+              "kind": "SCALAR",
+              "ofType": null
+            }
+          }
+        },
+        {
+          "name": "addressType",
+          "type": {
+            "name": null,
+            "kind": "NON_NULL",
+            "ofType": {
+              "name": "AddressType",
+              "kind": "ENUM",
+              "ofType": null
+            }
+          }
+        },
+        {
+          "name": "street",
+          "type": {
+            "name": "String",
+            "kind": "SCALAR",
+            "ofType": null
+          }
+        },
+        {
+          "name": "city",
+          "type": {
+            "name": "String",
+            "kind": "SCALAR",
+            "ofType": null
+          }
+        },
+        {
+          "name": "state",
+          "type": {
+            "name": null,
+            "kind": "NON_NULL",
+            "ofType": {
+              "name": "String",
+              "kind": "SCALAR",
+              "ofType": null
+            }
+          }
+        },
+        {
+          "name": "zipCode",
+          "type": {
+            "name": "String",
+            "kind": "SCALAR",
+            "ofType": null
+          }
+        },
+        {
+          "name": "country",
+          "type": {
+            "name": "Country",
+            "kind": "OBJECT",
+            "ofType": null
+          }
+        }
+      ],
+      "inputFields": null
+    }
+  }
+}

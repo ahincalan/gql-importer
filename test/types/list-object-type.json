@@ -1,0 +1,50 @@
+{
+  "data": {
+    "__type": {
+      "kind": "OBJECT",
+      "enumValues": null,
+      "fields": [
+        {
+          "name": "pk",
+          "type": {
+            "name": "HashID",
+            "kind": "SCALAR",
+            "ofType": null
+          }
+        },
+        {
+          "name": "birthDate",
+          "type": {
+            "name": "Date",
+            "kind": "SCALAR",
+            "ofType": null
+          }
+        },
+        {
+          "name": "birthOrder",
+          "type": {
+            "name": "Int",
+            "kind": "SCALAR",
+            "ofType": null
+          }
+        },
+        {
+          "name": "addresses",
+          "type": {
+            "name": null,
+            "kind": "LIST",
+            "ofType": {
+              "name": null,
+              "kind": "NON_NULL",
+              "ofType": {
+                "name": "Address",
+                "kind": "OBJECT"
+              }
+            }
+          }
+        }
+      ],
+      "inputFields": null
+    }
+  }
+}
