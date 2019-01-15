@@ -7,6 +7,7 @@ module.exports = {
     {name: 'type', alias: 't', type: String},
     {name: 'typeFileName', alias: 'f', type: String},
     {name: 'output', alias: 'o', type: String},
+    {name: 'declarationFile', alias: 'd', type: Boolean},
     {name: 'help', alias: 'h', type: Boolean}
   ],
   helpSections: [
@@ -46,6 +47,11 @@ module.exports = {
           name: 'verbose',
           typeLabel: '{italic optional}',
           description: '(-v) This parameter show types console log'
+        },
+        {
+          name: 'declarationFile',
+          typeLabel: '{italic optional}',
+          description: '(-d) This parameter generate declaration file "d.ts"'
         },
         {
           name: 'help',

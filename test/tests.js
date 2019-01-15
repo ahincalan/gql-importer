@@ -21,7 +21,7 @@ describe('Parser prepare and properties tests', function() {
   });
 
   it('Should validate default fileName property', () => {
-    assert.strictEqual(parser.fileName, 'schema-types.ts');
+    assert.strictEqual(parser.fileName, 'schema-types');
   });
 
   it('Should set typeFileName option validate fileName property', () => {
@@ -31,7 +31,7 @@ describe('Parser prepare and properties tests', function() {
 
   it('Should set specific type option validate fileName property', () => {
     parser._options = {...parser._options, ...{type: 'Test'}};
-    assert.strictEqual(parser.fileName, 'test-type.ts');
+    assert.strictEqual(parser.fileName, 'test-type');
   });
 
   it('Should set output option validate fileName property', () => {
@@ -101,8 +101,9 @@ describe('Parser generate type file tests', () => {
     assert.strictEqual(contents.indexOf('Address[]') > -1, true);
   });
 
-  it('Should generate schema type file', () => {
+  it('Should generate schema type file and declaration type file', () => {
     parser._raw = require('./types/schema.json');
+    parser._options['declarationFile'] = true;
     parser._generate();
     assert.strictEqual(parser instanceof GqlParser, true);
   });

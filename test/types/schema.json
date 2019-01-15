@@ -386,42 +386,10 @@
           "inputFields": null
         },
         {
-          "name": "Mutation",
-          "kind": "OBJECT",
-          "enumValues": null,
-          "fields": [
-            {
-              "name": "global",
-              "type": {
-                "kind": "OBJECT",
-                "name": "GLB_Mutation",
-                "ofType": null
-              }
-            }
-          ],
-          "inputFields": null
-        },
-        {
           "name": "Boolean",
           "kind": "SCALAR",
           "enumValues": null,
           "fields": null,
-          "inputFields": null
-        },
-        {
-          "name": "GLB_Mutation",
-          "kind": "OBJECT",
-          "enumValues": null,
-          "fields": [
-            {
-              "name": "patient",
-              "type": {
-                "kind": "OBJECT",
-                "name": "HLT_MutationPatient",
-                "ofType": null
-              }
-            }
-          ],
           "inputFields": null
         },
         {

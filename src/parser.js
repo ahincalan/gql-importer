@@ -11,6 +11,7 @@ class GqlParser {
     this._raw = null;
     this._fileName = 'default.ts';
     this._types = {};
+    this._fileExtension = '';
   }
 
   get fileName() {
@@ -18,9 +19,9 @@ class GqlParser {
       this._fileName = this._options['typeFileName'];
     } else {
       if (this._options['type'])
-        this._fileName = this._options['type'].toLowerCase() + '-type.ts';
+        this._fileName = this._options['type'].toLowerCase() + '-type';
       else
-        this._fileName = 'schema-types.ts';
+        this._fileName = 'schema-types';
     }
     if (this._options['output']) {
       try {
@@ -31,7 +32,7 @@ class GqlParser {
       }
       this._fileName = this._options['output'] + '/' + this._fileName;
     }
-    return this._fileName;
+    return this._fileName + this._fileExtension;
   }
 
   get fileContent() {
@@ -40,7 +41,11 @@ class GqlParser {
       fields = this._raw.data['__type']['fields'] ||
           this._raw.data['__type']['inputFields'] ||
           this._raw.data['__type']['enumValues'];
-      return this._typeParser(this._options['type'], fields, this._raw.data['__type'].kind);
+      return this._typeParser({
+        type: this._options['type'],
+        fields: fields,
+        kind: this._raw.data['__type'].kind
+      });
     } else {
       return this._schemaParser(this._raw.data['__schema'].types);
     }
@@ -76,13 +81,30 @@ class GqlParser {
     this._getGqlObject(type);
   }
 
-  _generate() {
+  _generateDeclaration() {
     try {
+      this._fileExtension = '.d.ts';
       fs.writeFileSync(this.fileName, this.fileContent, 'utf8');
     } catch (err) {
       /*istanbul ignore next*/
       console.error(chalk['red'](err.toString()));
     }
+  }
+
+  _generateTypeScript() {
+    try {
+      this._fileExtension = '.ts';
+      fs.writeFileSync(this.fileName, this.fileContent, 'utf8');
+    } catch (err) {
+      /*istanbul ignore next*/
+      console.error(chalk['red'](err.toString()));
+    }
+  }
+
+  _generate() {
+    this._generateTypeScript();
+    if (this._options['declarationFile'])
+      this._generateDeclaration();
   }
 
   _getFieldType(type) {
@@ -125,14 +147,19 @@ class GqlParser {
     return t;
   }
 
-  _typeParser(type, fields, kind) {
+  _typeParser({type, fields, kind}) {
     let f = '';
     let k = (kind === 'ENUM' ? 'enum' : 'interface');
     for (const i in fields) {
       if (fields.hasOwnProperty(i)) {
         if (kind === 'ENUM') {
-          f += '\n\t' + fields[i].name + ' = "' +
-              (fields[i].description || fields[i].name) + '",';
+          if (this._fileExtension === '.ts')
+            f += '\n\t' + fields[i].name + ' = "' +
+                (fields[i].description || fields[i].name) + '",';
+          else {
+            if (f !== '') f += ' | ';
+            f += ' "' + (fields[i].description || fields[i].name) + '" ';
+          }
         } else {
           if (['SCALAR', 'OBJECT', 'ENUM',
             'LIST', 'INPUT_OBJECT',
@@ -145,7 +172,11 @@ class GqlParser {
       }
     }
     type = type || this._options['type'];
-    return 'export ' + k + ' ' + type + ' {' + f + '\n}';
+    if (this._fileExtension === '.ts' || k !== 'enum')
+      return 'export ' + k + ' ' + type + ' {' + f + '\n}';
+    else if (this._fileExtension === '.d.ts' && k === 'enum') {
+      return 'export type ' + type + ' = ' + f + '; ';
+    }
   }
 
   _schemaParser(types) {
@@ -162,14 +193,26 @@ class GqlParser {
         if (this._types[key].kind === 'INPUT_OBJECT') {
           str +=
               '\n\n' +
-              this._typeParser(this._types[key].name, this._types[key]['inputFields'], this._types[key].kind);
+              this._typeParser({
+                type: this._types[key].name,
+                fields: this._types[key]['inputFields'],
+                kind: this._types[key].kind
+              });
         } else if (this._types[key].kind === 'ENUM') {
           str +=
               '\n\n' +
-              this._typeParser(this._types[key].name, this._types[key]['enumValues'], this._types[key].kind);
+              this._typeParser({
+                type: this._types[key].name,
+                fields: this._types[key]['enumValues'],
+                kind: this._types[key].kind
+              });
         } else {
           str += '\n\n' +
-              this._typeParser(this._types[key].name, this._types[key]['fields'], this._types[key].kind);
+              this._typeParser({
+                type: this._types[key].name,
+                fields: this._types[key]['fields'],
+                kind: this._types[key].kind
+              });
         }
       }
     }
