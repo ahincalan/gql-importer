@@ -4,7 +4,7 @@
   "description": "GraphQL types to typescript interface importer",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require ./test/support/env --reporter spec --bail --check-leaks test/",
+    "test": "mocha --reporter spec --bail --check-leaks test/",
     "cover": "nyc --reporter html --reporter text npm run test",
     "travis-cover": "nyc --reporter lcovonly npm run test"
   },
