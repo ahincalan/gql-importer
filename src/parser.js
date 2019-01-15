@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const {schemaQuery, typeQuery} = require('./query');
 const fs = require('fs');
 
-class Parser {
+class GqlParser {
 
   constructor(options) {
     this._options = options;
@@ -179,5 +179,5 @@ class Parser {
 }
 
 module.exports = {
-  GqlParser: Parser
+  GqlParser: GqlParser
 };

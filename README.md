@@ -8,5 +8,5 @@ npm install gql-importer
 
 ##### Usage
 ```text
-gql-importer --help 
+gqlImporter --help 
 ```

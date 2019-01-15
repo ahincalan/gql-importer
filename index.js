@@ -22,7 +22,12 @@ async function run() {
   }
 
   if (!options['url']) {
-    console.error(chalk.red('host --url not found'));
+    console.error(chalk.red('Host "--url" not found'));
+    return;
+  }
+
+  if (!options['verbose'] && !options['generate']) {
+    console.error(chalk.red('Please make a choice "--verbose" and/or "--generate"'));
     return;
   }
 
